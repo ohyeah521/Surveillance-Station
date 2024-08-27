@@ -11,6 +11,16 @@
 
 请使用者在使用本研究成果时，自觉遵守法律法规，并对自己的行为负责。
 
+---
+### 交流群
+[Telegram Group](https://t.me/+40j656PRiB41NTI1)
+
+---
+### 请我喝杯咖啡
+- [PayPal](https://paypal.me/wovow)
+
+- ![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/buy%20me%20coffee.jpg)
+
 
 
 
@@ -37,12 +47,4 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 ![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/crack_license.png)
 
 
----
-### 请我喝杯咖啡
-- [PayPal](https://paypal.me/wovow)
 
-- ![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/buy%20me%20coffee.jpg)
-
----
-### 交流群
-[Telegram Group](https://t.me/+40j656PRiB41NTI1)
