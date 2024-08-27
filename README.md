@@ -20,7 +20,7 @@
 
 ---
 ### x86_64版本
-- Link download: https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-x86_64-9.2.0-11289.spk
+- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-x86_64-9.2.0-11289.spk)
 - Script:
 ```
 bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/SurveillanceStation-x86_64/install_license)
@@ -39,6 +39,10 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 
 ---
 ### 请我喝杯咖啡
-- PayPal: https://paypal.me/wovow
+- [PayPal](https://paypal.me/wovow)
 
 - ![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/buy%20me%20coffee.jpg)
+
+---
+### 交流群
+[Telegram Group](https://t.me/+40j656PRiB41NTI1)
