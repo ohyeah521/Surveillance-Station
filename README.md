@@ -39,4 +39,6 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 
 ---
 ### 请我喝杯咖啡
-![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/buy%20me%20coffee.jpg)
+- PayPal: https://paypal.me/wovow
+
+- ![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/buy%20me%20coffee.jpg)
