@@ -37,6 +37,14 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 ```
 
 ---
+### x86_64-openvino版本
+- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-x86_64-9.2.0-11289_openvino.spk)
+- Script:
+```
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/SurveillanceStation-x86_64_openvino/install_license)
+```
+
+---
 ### 恢复默认授权
 - Script:
 ```
