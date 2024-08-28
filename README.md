@@ -45,7 +45,7 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 ```
 
 ---
-### x86_64-armada375版本
+### armada375版本
 - [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-armada375-9.2.0-11289.spk)
 - Script:
 ```
