@@ -34,7 +34,7 @@ process_file /var/packages/SurveillanceStation/target/sbin  sscored           ss
 process_file /var/packages/SurveillanceStation/target/sbin  ssdaemonmonitord  ssdaemonmonitord_backup 0755
 process_file /var/packages/SurveillanceStation/target/sbin  ssexechelperd     ssexechelperd_backup    0755
 process_file /var/packages/SurveillanceStation/target/sbin  ssroutined        ssroutined_backup       0755
-process_file /var/packages/SurveillanceStation/target/sbin  ssrtmpclientd     ssrtmpclientd_backup    0755
+process_file /var/packages/SurveillanceStation/target/sbin  ssmessaged        ssmessaged_backup       0755
 
  
 
