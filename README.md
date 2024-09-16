@@ -58,6 +58,13 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 ```
 bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/SurveillanceStation-armada375/install_license)
 ```
+---
+### armv8版本
+- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-armv8-9.2.0-11289.spk)
+- Script:
+```
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/SurveillanceStation-armv8/install_license)
+```
 
 ---
 ### 恢复默认授权
