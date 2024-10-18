@@ -17,7 +17,8 @@
 
 ---
 ### 请我喝杯咖啡
-- [PayPal](https://paypal.me/wovow)
+If this code helps and you wish to support me:
+- [PayPal: https://paypal.me/wovow](https://paypal.me/wovow)
 
 - ![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/buy%20me%20coffee.jpg)
 
