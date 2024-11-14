@@ -21,7 +21,15 @@ process_file() {
     echo "Error: Backup file $backup does not exist in $dir"
   fi
 }
-
+# 解除屏蔽认证服务器
+unblock_license_server() {
+  if grep -q "synosurveillance.synology.com" /etc/hosts; then
+    echo "Unblocking license server: synosurveillance.synology.com"
+    sudo sed -i '/synosurveillance.synology.com/d' /etc/hosts
+  else
+    echo "License server not blocked: synosurveillance.synology.com."
+  fi
+}
 
 /usr/syno/bin/synopkg stop SurveillanceStation
 sleep 5
@@ -35,7 +43,7 @@ process_file /var/packages/SurveillanceStation/target/sbin  ssdaemonmonitord  ss
 process_file /var/packages/SurveillanceStation/target/sbin  ssexechelperd     ssexechelperd_backup    0755
 process_file /var/packages/SurveillanceStation/target/sbin  ssroutined        ssroutined_backup       0755
 process_file /var/packages/SurveillanceStation/target/sbin  ssmessaged        ssmessaged_backup       0755
-
+unblock_license_server
  
 
 sleep 5
