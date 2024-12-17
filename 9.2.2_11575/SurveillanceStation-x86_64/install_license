@@ -1,0 +1,45 @@
+#!/bin/sh
+#bash <(curl -L https://github.com/ohyeah521/Surveillance-Station/raw/main/9.2.2_11575/SurveillanceStation-x86_64/install_license)
+
+
+# 屏蔽认证服务器
+if grep -q "synosurveillance.synology.com" /etc/hosts; then
+  echo "already blocked license server: synosurveillance.synology.com."
+else
+  echo "add block license server: synosurveillance.synology.com"
+  echo "0.0.0.0 synosurveillance.synology.com" | sudo tee -a /etc/hosts
+fi
+
+
+# 定义处理文件的函数
+process_file() {
+  local dir="$1"
+  local file="$2"
+  local url="$3"
+  local mode="$4"
+
+  cd "$dir" || exit
+  cp ./"$file" ./"$file"_backup
+  rm ./"$file"
+  wget "$url" -O ./"$file"
+  chown SurveillanceStation:SurveillanceStation ./"$file"
+  chmod "$mode" ./"$file"
+}
+
+
+/usr/syno/bin/synopkg stop SurveillanceStation
+sleep 5
+
+
+# 处理每个文件
+process_file /var/packages/SurveillanceStation/target/lib  libssutils.so    https://github.com/ohyeah521/Surveillance-Station/raw/main/9.2.2_11575/SurveillanceStation-x86_64/libssutils.so     0644
+process_file /var/packages/SurveillanceStation/target/sbin sscmshostd       https://github.com/ohyeah521/Surveillance-Station/raw/main/9.2.2_11575/SurveillanceStation-x86_64/sscmshostd        0755
+process_file /var/packages/SurveillanceStation/target/sbin sscored          https://github.com/ohyeah521/Surveillance-Station/raw/main/9.2.2_11575/SurveillanceStation-x86_64/sscored           0755
+process_file /var/packages/SurveillanceStation/target/sbin ssdaemonmonitord https://github.com/ohyeah521/Surveillance-Station/raw/main/9.2.2_11575/SurveillanceStation-x86_64/ssdaemonmonitord  0755
+process_file /var/packages/SurveillanceStation/target/sbin ssexechelperd    https://github.com/ohyeah521/Surveillance-Station/raw/main/9.2.2_11575/SurveillanceStation-x86_64/ssexechelperd     0755
+process_file /var/packages/SurveillanceStation/target/sbin ssroutined       https://github.com/ohyeah521/Surveillance-Station/raw/main/9.2.2_11575/SurveillanceStation-x86_64/ssroutined        0755
+# process_file /var/packages/SurveillanceStation/target/sbin ssrtmpclientd    https://github.com/ohyeah521/Surveillance-Station/raw/main/9.2.2_11575/SurveillanceStation-x86_64/ssrtmpclientd     0755
+
+
+sleep 5
+/usr/syno/bin/synopkg start SurveillanceStation
