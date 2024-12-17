@@ -23,6 +23,17 @@ If this code helps and you wish to support me:
 - ![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/buy%20me%20coffee.jpg)
 
 
+## [Surveillance Station 9.2.2_11575](https://archive.synology.com/download/Package/SurveillanceStation)
+
+---
+### x86_64版本
+- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.2-11575/SurveillanceStation-x86_64-9.2.2-11575.spk)
+- Script:
+```
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.2_11575/SurveillanceStation-x86_64/install_license)
+```
+
+
 ## [Surveillance Station 9.2.1_11380](https://archive.synology.com/download/Package/SurveillanceStation)
 
 ---
@@ -32,8 +43,6 @@ If this code helps and you wish to support me:
 ```
 bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.1_11380/SurveillanceStation-x86_64/install_license)
 ```
-
-
 
 ## [Surveillance Station 9.2.0-11289](https://archive.synology.com/download/Package/SurveillanceStation)
 
