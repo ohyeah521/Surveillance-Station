@@ -25,6 +25,18 @@ If this code helps and you wish to support me:
 - - Ethereum: 0xcD3e7014164c462c07aD2700D1206Fb586388428
 -
 
+
+## [Surveillance Station 9.2.3_11755](https://archive.synology.com/download/Package/SurveillanceStation)
+
+---
+### x86_64版本
+- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.3-11755/SurveillanceStation-x86_64-9.2.3-11755.spk)
+- Script:
+```
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/refs/heads/main/9.2.3_11755/SurveillanceStation-x86_64/install_license)
+```
+
+
 ## [Surveillance Station 9.2.2_11575](https://archive.synology.com/download/Package/SurveillanceStation)
 
 ---
