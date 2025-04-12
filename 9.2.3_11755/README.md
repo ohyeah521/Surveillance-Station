@@ -25,7 +25,12 @@
 
 ---
 ### x86_64版本
-- 等等……
+- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.3-11755/SurveillanceStation-x86_64-9.2.3-11755.spk)
+- Script:
+```
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.3_11755/SurveillanceStation-x86_64/install_license)
+```
+
 
 
 
