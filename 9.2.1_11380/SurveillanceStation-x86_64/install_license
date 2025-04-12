@@ -38,6 +38,7 @@ process_file /var/packages/SurveillanceStation/target/sbin sscored          http
 process_file /var/packages/SurveillanceStation/target/sbin ssdaemonmonitord https://github.com/ohyeah521/Surveillance-Station/raw/main/9.2.1_11380/SurveillanceStation-x86_64/ssdaemonmonitord  0755
 process_file /var/packages/SurveillanceStation/target/sbin ssexechelperd    https://github.com/ohyeah521/Surveillance-Station/raw/main/9.2.1_11380/SurveillanceStation-x86_64/ssexechelperd     0755
 process_file /var/packages/SurveillanceStation/target/sbin ssroutined       https://github.com/ohyeah521/Surveillance-Station/raw/main/9.2.1_11380/SurveillanceStation-x86_64/ssroutined        0755
+process_file /var/packages/SurveillanceStation/target/sbin ssmessaged       https://github.com/ohyeah521/Surveillance-Station/raw/main/9.2.1_11380/SurveillanceStation-x86_64/ssmessaged        0755
 # process_file /var/packages/SurveillanceStation/target/sbin ssrtmpclientd    https://github.com/ohyeah521/Surveillance-Station/raw/main/9.2.1_11380/SurveillanceStation-x86_64/ssrtmpclientd     0755
 
 
