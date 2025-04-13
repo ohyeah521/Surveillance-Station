@@ -26,103 +26,40 @@ If this code helps and you wish to support me:
 -
 
 
-## [Surveillance Station 9.2.3_11755](https://archive.synology.com/download/Package/SurveillanceStation)
+## Download [Surveillance Station](https://archive.synology.com/download/Package/SurveillanceStation)
 
 ---
-### x86_64版本
-- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.3-11755/SurveillanceStation-x86_64-9.2.3-11755.spk)
-- Script:
+### 破解授权
+- Online:
+```shell
+curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/refs/heads/main/9.2.3_11755/SurveillanceStation-x86_64/install_license)
-```
-
-
-## [Surveillance Station 9.2.2_11575](https://archive.synology.com/download/Package/SurveillanceStation)
-
----
-### x86_64版本
-- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.2-11575/SurveillanceStation-x86_64-9.2.2-11575.spk)
-- Script:
-```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.2_11575/SurveillanceStation-x86_64/install_license)
-```
-
-
-## [Surveillance Station 9.2.1_11380](https://archive.synology.com/download/Package/SurveillanceStation)
-
----
-### x86_64版本
-- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.1-11380/SurveillanceStation-x86_64-9.2.1-11380.spk)
-- Script:
-```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.1_11380/SurveillanceStation-x86_64/install_license)
-```
-
-## [Surveillance Station 9.2.0-11289](https://archive.synology.com/download/Package/SurveillanceStation)
-
-
-
----
-### x86_64版本
-- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-x86_64-9.2.0-11289.spk)
-- Script:
-```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/SurveillanceStation-x86_64/install_license)
+- Offline:
+```shell
+# 1. Download https://github.com/ohyeah521/Surveillance-Station/archive/refs/heads/main.zip
+# 2. Unload to your DSM system.
+unzip Surveillance-Station-main.zip
+cd Surveillance-Station-main
+chmod +x activated.sh
+./activated.sh 
 ```
 
 ---
-### x86_64-openvino版本
-- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-x86_64-9.2.0-11289_openvino.spk)
-- Script:
+### 恢复授权
+- Online:
+```shell
+curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash -s -r
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/SurveillanceStation-x86_64_openvino/install_license)
-```
-
----
-### x86_64-DVA_3221版本
-- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-x86_64-9.2.0-11289_DVA_3221.spk)
-- Script:
-```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/SurveillanceStation-x86_64_dva_3321/install_license)
-```
----
-### armada375版本
-- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-armada375-9.2.0-11289.spk)
-- Script:
-```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/SurveillanceStation-armada375/install_license)
+- Offline:
+```shell
+# 1. Download https://github.com/ohyeah521/Surveillance-Station/archive/refs/heads/main.zip
+# 2. Unload to your DSM system.
+unzip Surveillance-Station-main.zip
+cd Surveillance-Station-main
+chmod +x activated.sh
+./activated.sh -r
 ```
 
----
-### armada38x版本
-- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-armada38x-9.2.0-11289.spk)
-- Script:
-```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/SurveillanceStation-armada38x/install_license)
-```
-
----
-### armv7版本
-- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-armv7-9.2.0-11289.spk)
-- Script:
-```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/SurveillanceStation-armv7/install_license)
-```
-
----
-### armv8版本
-- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-armv8-9.2.0-11289.spk)
-- Script:
-```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/SurveillanceStation-armv8/install_license)
-```
-
----
-### 恢复默认授权
-- Script:
-```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/license/remove_license)
-```
 ---
 ### 破解60授权
 ![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/crack_license.png)
