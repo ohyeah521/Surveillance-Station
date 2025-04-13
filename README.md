@@ -48,7 +48,7 @@ chmod +x activated.sh
 ### 恢复授权
 - Online:
 ```shell
-curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash -s -r
+curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash -s -- -r
 ```
 - Offline:
 ```shell

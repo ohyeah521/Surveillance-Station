@@ -12,7 +12,7 @@ install() {
   _get_files() {
     local url="${1}" file="${2}"
     echo "Downloading $(basename "${url}" 2>/dev/null) ..."
-    mkdir -p "$(dirname "${file}")"
+    mkdir -p "$(dirname "${file}" 2>/dev/null)" 2>/dev/null
     STATUS="$(curl -skL -w "%{http_code}" "${url}" -o "${file}")"
     STATUS="${STATUS: -3}"
     if [ "${STATUS}" != "200" ]; then
@@ -96,7 +96,7 @@ uninstall() {
       chown SurveillanceStation:SurveillanceStation "${file}"
       chmod "${mode}" "${file}"
     else
-      echo "Error: Backup files does not exist"
+      echo "Error: Backup file for ${file} does not exist"
     fi
   }
 
