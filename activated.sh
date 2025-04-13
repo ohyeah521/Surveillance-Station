@@ -30,6 +30,7 @@ install() {
     chmod "${mode}" "${dest}"
   }
 
+  ISDL=false
   if [ ! -d "${WORK_PATH}/${VERSION}/${ARCH}${SUFFIX}" ]; then
     REPO="${REPO:-"ohyeah521/Surveillance-Station"}"
     BRANCH="${BRANCH:-"main"}"
@@ -59,6 +60,7 @@ install() {
     for F in "${PATCH_FILES[@]}"; do
       _get_files "${URL_FIX}/${F}" "${WORK_PATH}/${VERSION}/${ARCH}${SUFFIX}/${F}"
     done
+    ISDL=true
   fi
 
   /usr/syno/bin/synopkg stop SurveillanceStation >/dev/null 2>&1
@@ -81,6 +83,8 @@ install() {
 
   sleep 5
   /usr/syno/bin/synopkg start SurveillanceStation >/dev/null 2>&1
+
+  [ "${ISDL}" = true ] && rm -rf "${WORK_PATH:?}/${VERSION:?}"
 }
 
 uninstall() {
