@@ -33,7 +33,7 @@ If this code helps and you wish to support me:
 - [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.3-11755/SurveillanceStation-x86_64-9.2.3-11755.spk)
 - Script:
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/refs/heads/main/9.2.3-11755/SurveillanceStation-x86_64/install_license)
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/refs/heads/main/9.2.3-11755/x86_64/install_license)
 ```
 
 
@@ -44,7 +44,7 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 - [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.2-11575/SurveillanceStation-x86_64-9.2.2-11575.spk)
 - Script:
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.2-11575/SurveillanceStation-x86_64/install_license)
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.2-11575/x86_64/install_license)
 ```
 
 
@@ -55,7 +55,7 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 - [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.1-11380/SurveillanceStation-x86_64-9.2.1-11380.spk)
 - Script:
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.1-11380/SurveillanceStation-x86_64/install_license)
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.1-11380/x86_64/install_license)
 ```
 
 ## [Surveillance Station 9.2.0-11289](https://archive.synology.com/download/Package/SurveillanceStation)
@@ -67,7 +67,7 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 - [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-x86_64-9.2.0-11289.spk)
 - Script:
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/SurveillanceStation-x86_64/install_license)
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/x86_64/install_license)
 ```
 
 ---
@@ -75,7 +75,7 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 - [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-x86_64-9.2.0-11289_openvino.spk)
 - Script:
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/SurveillanceStation-x86_64_openvino/install_license)
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/x86_64_openvino/install_license)
 ```
 
 ---
@@ -83,14 +83,14 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 - [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-x86_64-9.2.0-11289_DVA_3221.spk)
 - Script:
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/SurveillanceStation-x86_64_dva_3221/install_license)
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/x86_64_dva_3221/install_license)
 ```
 ---
 ### armada375版本
 - [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-armada375-9.2.0-11289.spk)
 - Script:
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/SurveillanceStation-armada375/install_license)
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/armada375/install_license)
 ```
 
 ---
@@ -98,7 +98,7 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 - [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-armada38x-9.2.0-11289.spk)
 - Script:
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/SurveillanceStation-armada38x/install_license)
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/armada38x/install_license)
 ```
 
 ---
@@ -106,7 +106,7 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 - [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-armv7-9.2.0-11289.spk)
 - Script:
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/SurveillanceStation-armv7/install_license)
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/armv7/install_license)
 ```
 
 ---
@@ -114,7 +114,7 @@ bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/
 - [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.0-11289/SurveillanceStation-armv8-9.2.0-11289.spk)
 - Script:
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/SurveillanceStation-armv8/install_license)
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/armv8/install_license)
 ```
 
 ---
