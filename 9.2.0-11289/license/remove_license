@@ -1,5 +1,5 @@
 #!/bin/sh
-#bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/license/remove_license)
+#bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/license/remove_license)
 
 
 # 定义一个函数来处理恢复文件操作

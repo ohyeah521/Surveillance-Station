@@ -21,22 +21,25 @@
 
 - ![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/buy%20me%20coffee.jpg)
 
-## [Surveillance Station 9.2.1_11380](https://archive.synology.com/download/Package/SurveillanceStation)
+## [Surveillance Station 9.2.3-11755](https://archive.synology.com/download/Package/SurveillanceStation)
 
 ---
 ### x86_64版本
-- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.1-11380/SurveillanceStation-x86_64-9.2.1-11380.spk)
+- [Download](https://global.synologydownload.com/download/Package/spk/SurveillanceStation/9.2.3-11755/SurveillanceStation-x86_64-9.2.3-11755.spk)
 - Script:
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.1_11380/SurveillanceStation-x86_64/install_license)
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.3-11755/SurveillanceStation-x86_64/install_license)
 ```
+
+
+
 
  
 ---
 ### 恢复默认授权
 - Script:
 ```
-bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0_11289/license/remove_license)
+bash <(curl -L https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/9.2.0-11289/license/remove_license)
 ```
 ---
 ### 破解60授权
