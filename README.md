@@ -30,15 +30,36 @@ If this code helps and you wish to support me:
 
 ---
 ### 破解授权
+- Online:
 ```shell
 curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash
+```
+- Offline:
+```shell
+# 1. Download https://github.com/ohyeah521/Surveillance-Station/archive/refs/heads/main.zip
+# 2. Unload to your DSM system.
+unzip Surveillance-Station-main.zip
+cd Surveillance-Station-main
+chmod +x activated.sh
+./activated.sh 
 ```
 
 ---
 ### 恢复授权
+- Online:
 ```shell
 curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash -s -r
 ```
+- Offline:
+```shell
+# 1. Download https://github.com/ohyeah521/Surveillance-Station/archive/refs/heads/main.zip
+# 2. Unload to your DSM system.
+unzip Surveillance-Station-main.zip
+cd Surveillance-Station-main
+chmod +x activated.sh
+./activated.sh -r
+```
+
 ---
 ### 破解60授权
 ![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/crack_license.png)

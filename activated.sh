@@ -6,36 +6,60 @@
 # See /LICENSE for more information.
 #
 
+WORK_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+
 install() {
+  _get_files() {
+    local url="${1}" file="${2}"
+    echo "Downloading $(basename "${url}" 2>/dev/null) ..."
+    mkdir -p "$(dirname "${file}")"
+    STATUS="$(curl -skL -w "%{http_code}" "${url}" -o "${file}")"
+    STATUS="${STATUS: -3}"
+    if [ "${STATUS}" != "200" ]; then
+      echo "Error: ${STATUS}, Failed to download ${url} from GitHub."
+      exit 1
+    fi
+  }
+  
   _process_file() {
-    local file="${1}" url="${2}" mode="${3}"
-    echo "Patch ${file}"
-    [ ! -f "${file}_backup" ] && cp -pf "${file}" "${file}_backup"
-    curl -skL "$url" -o "${file}"
-    chown SurveillanceStation:SurveillanceStation "${file}"
-    chmod "${mode}" "${file}"
+    local file="${1}" dest="${2}" suffix="${3}" mode="${4}"
+    echo "Patch ${dest}"
+    [ ! -f "${dest}${suffix}" ] && cp -pf "${dest}" "${dest}${suffix}"
+    cp -f "${file}" "${dest}"
+    chown SurveillanceStation:SurveillanceStation "${dest}"
+    chmod "${mode}" "${dest}"
   }
 
-  REPO="${REPO:-"ohyeah521/Surveillance-Station"}"
-  BRANCH="${BRANCH:-"main"}"
+  if [ ! -d "${WORK_PATH}/${VERSION}/${ARCH}${SUFFIX}" ]; then
+    REPO="${REPO:-"ohyeah521/Surveillance-Station"}"
+    BRANCH="${BRANCH:-"main"}"
 
-  STATUS="$(curl -s -m 10 -connect-timeout 10 -w "%{http_code}" "https://github.com/${REPO}/tree/${BRANCH}/${VERSION}/${ARCH}${SUFFIX}" -o /dev/null 2>/dev/null)"
-  STATUS="${STATUS: -3}"
-  case "${STATUS}" in
-  "200") ;;
-  "403")
-    echo "Error: ${STATUS}, Access forbidden to the package on GitHub."
-    exit 1
-    ;;
-  "404")
-    echo "Error: ${STATUS}, Current version not found patch on GitHub."
-    exit 1
-    ;;
-  *)
-    echo "Error: ${STATUS}, Failed to download package from GitHub."
-    exit 1
-    ;;
-  esac
+    # 检查版本是否存在
+    VERURL="https://github.com/${REPO}/tree/${BRANCH}/${VERSION}/${ARCH}${SUFFIX}"
+    STATUS="$(curl -s -m 10 -connect-timeout 10 -w "%{http_code}" "${VERURL}" -o /dev/null 2>/dev/null)"
+    STATUS="${STATUS: -3}"
+    case "${STATUS}" in
+    "200") ;;
+    "403")
+      echo "Error: ${STATUS}, Access forbidden to the package on GitHub."
+      exit 1
+      ;;
+    "404")
+      echo "Error: ${STATUS}, Current version not found patch on GitHub."
+      exit 1
+      ;;
+    *)
+      echo "Error: ${STATUS}, Failed to download package from GitHub."
+      exit 1
+      ;;
+    esac
+
+    # 获取 patch 文件
+    URL_FIX="https://github.com/${REPO}/raw/${BRANCH}/${VERSION}/${ARCH}${SUFFIX}"
+    for F in "${PATCH_FILES[@]}"; do
+      _get_files "${URL_FIX}/${F}" "${WORK_PATH}/${VERSION}/${ARCH}${SUFFIX}/${F}"
+    done
+  fi
 
   /usr/syno/bin/synopkg stop SurveillanceStation >/dev/null 2>&1
   sleep 5
@@ -50,15 +74,10 @@ install() {
 
   # 处理 patch 文件
   SS_PATH="/var/packages/SurveillanceStation/target"
-  URL_FIX="https://github.com/${REPO}/raw/${BRANCH}/${VERSION}/${ARCH}${SUFFIX}"
-  _process_file "${SS_PATH}/lib/libssutils.so" "${URL_FIX}/libssutils.so" 0644
-  _process_file "${SS_PATH}/sbin/sscmshostd" "${URL_FIX}/sscmshostd" 0755
-  _process_file "${SS_PATH}/sbin/sscored" "${URL_FIX}/sscored" 0755
-  _process_file "${SS_PATH}/sbin/ssdaemonmonitord" "${URL_FIX}/ssdaemonmonitord" 0755
-  _process_file "${SS_PATH}/sbin/ssexechelperd" "${URL_FIX}/ssexechelperd" 0755
-  _process_file "${SS_PATH}/sbin/ssroutined" "${URL_FIX}/ssroutined" 0755
-  _process_file "${SS_PATH}/sbin/ssmessaged" "${URL_FIX}/ssmessaged" 0755
-  # _process_file "${SS_PATH}/sbin/ssrtmpclientd" "${URL_FIX}/ssrtmpclientd" 0755
+  _suffix="_backup"
+  for F in "${PATCH_FILES[@]}"; do
+    _process_file "${WORK_PATH}/${VERSION}/${ARCH}${SUFFIX}/${F}" "${SS_PATH}/${F}" "${_suffix}" 0755
+  done
 
   sleep 5
   /usr/syno/bin/synopkg start SurveillanceStation >/dev/null 2>&1
@@ -67,9 +86,7 @@ install() {
 uninstall() {
   _process_file() {
     local file="${1}" suffix="${2}" mode="${3}"
-
-    # 检查备份文件是否存在
-    if [ -e "${file}${suffix}" ]; then
+    if [ -f "${file}${suffix}" ]; then
       echo "Restore ${file}"
       mv -f "${file}${suffix}" "${file}"
       chown SurveillanceStation:SurveillanceStation "${file}"
@@ -84,14 +101,10 @@ uninstall() {
 
   # 处理 patch 文件
   SS_PATH="/var/packages/SurveillanceStation/target"
-  _process_file "${SS_PATH}/lib/libssutils.so" _backup 0644
-  _process_file "${SS_PATH}/sbin/sscmshostd" _backup 0755
-  _process_file "${SS_PATH}/sbin/sscored" _backup 0755
-  _process_file "${SS_PATH}/sbin/ssdaemonmonitord" _backup 0755
-  _process_file "${SS_PATH}/sbin/ssexechelperd" _backup 0755
-  _process_file "${SS_PATH}/sbin/ssroutined" _backup 0755
-  _process_file "${SS_PATH}/sbin/ssmessaged" _backup 0755
-  # _process_file "${SS_PATH}/sbin/ssrtmpclientd" _backup 0755
+  _suffix="_backup"
+  for F in "${PATCH_FILES[@]}"; do
+    _process_file "${SS_PATH}/${F}" "${_suffix}" 0755
+  done
 
   # 解除屏蔽认证服务器
   if grep -q "synosurveillance.synology.com" /etc/hosts; then
@@ -134,6 +147,17 @@ case "$(synogetkeyvalue /var/packages/SurveillanceStation/INFO model)" in
 "synology_geminilake_dva1622") SUFFIX="_openvino" ;;
 *) ;;
 esac
+
+PATCH_FILES=(
+  "lib/libssutils.so"
+  "sbin/sscmshostd"
+  "sbin/sscored"
+  "sbin/ssdaemonmonitord"
+  "sbin/ssexechelperd"
+  "sbin/ssroutined"
+  "sbin/ssmessaged"
+  # "sbin/ssrtmpclientd"
+)
 
 echo "Found SurveillanceStation-${ARCH}-${VERSION}${SUFFIX}"
 
