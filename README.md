@@ -31,13 +31,13 @@ If this code helps and you wish to support me:
 ---
 ### 破解授权
 ```shell
-curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Statio/main/activated.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash
 ```
 
 ---
 ### 恢复授权
 ```shell
-curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Statio/main/activated.sh | bash -s -r
+curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash -s -r
 ```
 ---
 ### 破解60授权
