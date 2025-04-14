@@ -63,8 +63,8 @@ function synoArchive() {
 }
 
 function getOfficiallibs() {
-
-  local SPK_URL="${1}"
+  local VERSION="${1}"
+  local SPK_URL="${2}"
 
   SS_NAME="$(basename "${SPK_URL}")"
   SS_PATH="$(basename "${SPK_URL}" .spk)"
@@ -88,9 +88,9 @@ function getOfficiallibs() {
   mkdir -p "${ROOT_PATH}/extract/package"
   (cd "${ROOT_PATH}/extract/package" && xz -dc <"${ROOT_PATH}/extract/package.tgz" | cpio -idm ${PATCH_LIST}) >/dev/null 2>&1 || true
 
-  mkdir -p "${ROOT_PATH}/${SS_PATH}"
-  rm -rf "${ROOT_PATH}/${SS_PATH}"
-  mv -f "${ROOT_PATH}/extract/package" "${ROOT_PATH}/${SS_PATH}"
+  mkdir -p "${ROOT_PATH}/${VERSION}/${SS_PATH}"
+  rm -rf "${ROOT_PATH}/${VERSION}/${SS_PATH}"
+  mv -f "${ROOT_PATH}/extract/package" "${ROOT_PATH}/${VERSION}/${SS_PATH}"
 
   rm -rf "${ROOT_PATH}/extract"
   rm -f "${SS_NAME}"
@@ -107,6 +107,6 @@ VER_LIST="$(curl -skL "${SS_URL}" | grep -oP '(?<=href="/download/Package/Survei
 for V in ${VER_LIST}; do
   SPK_LSIT="$(curl -skL "${SS_URL}/${V}" | grep -oP '(?<=href=")http[^"]+\.spk')"
   for S in ${SPK_LSIT}; do
-    getOfficiallibs "${S}"
+    getOfficiallibs "${V}" "${S}"
   done
 done
