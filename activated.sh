@@ -15,7 +15,7 @@ install() {
     mkdir -p "$(dirname "${file}" 2>/dev/null)" 2>/dev/null
     STATUS="$(curl -skL -w "%{http_code}" "${url}" -o "${file}")"
     STATUS="${STATUS: -3}"
-    if [ "${STATUS}" != "200" ]; then
+    if ! echo "200 404" | grep -wq "${STATUS}"; then
       echo "Error: ${STATUS}, Failed to download ${url} from GitHub."
       exit 1
     fi
