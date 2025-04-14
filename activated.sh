@@ -24,6 +24,10 @@ install() {
   _process_file() {
     local file="${1}" dest="${2}" suffix="${3}" mode="${4}"
     echo "Patch ${dest}"
+    [ ! -f "${file}" ] && {
+      echo "Warning: ${file} not exist, skip."
+      return 1
+    }
     [ ! -f "${dest}${suffix}" ] && cp -pf "${dest}" "${dest}${suffix}"
     cp -f "${file}" "${dest}"
     chown SurveillanceStation:SurveillanceStation "${dest}"
