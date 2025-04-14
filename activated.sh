@@ -160,7 +160,7 @@ PATCH_FILES=(
   "sbin/ssexechelperd"
   "sbin/ssroutined"
   "sbin/ssmessaged"
-  # "sbin/ssrtmpclientd"
+  "sbin/ssrtmpclientd"
 )
 
 echo "Found SurveillanceStation-${ARCH}-${VERSION}${SUFFIX}"
