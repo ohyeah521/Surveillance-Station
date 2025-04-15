@@ -17,7 +17,7 @@ on:
       patch_list:
         description: "patch list"
         # default: "bin/* lib/* sbin/*"
-        default: "lib/libssutils.so sbin/sscmshostd sbin/sscored sbin/ssdaemonmonitord sbin/ssexechelperd sbin/ssroutined sbin/ssmessaged sbin/ssrtmpclientd"
+        default: ""
         type: string
 
 jobs:
