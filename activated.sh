@@ -160,6 +160,8 @@ SS_NAME="SurveillanceStation-${ARCH}-${VERSION}${SUFFIX}"
 
 PATCH_FILES=(
   "lib/libssutils.so"
+  "bin/ssctl"
+  "sbin/ssactruled"
   "sbin/sscmshostd"
   "sbin/sscored"
   "sbin/ssdaemonmonitord"
