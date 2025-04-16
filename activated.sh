@@ -150,8 +150,8 @@ fi
 ARCH="$(synogetkeyvalue /var/packages/SurveillanceStation/INFO arch)"
 SUFFIX=""
 case "$(synogetkeyvalue /var/packages/SurveillanceStation/INFO model)" in
-"synology_denverton_dva3219") SUFFIX="_dva_3219" ;;
-"synology_denverton_dva3221") SUFFIX="_dva_3221" ;;
+"synology_denverton_dva3219") SUFFIX="_DVA_3219" ;;
+"synology_denverton_dva3221") SUFFIX="_DVA_3221" ;;
 "synology_geminilake_dva1622") SUFFIX="_openvino" ;;
 *) ;;
 esac
