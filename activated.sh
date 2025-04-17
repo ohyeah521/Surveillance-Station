@@ -169,7 +169,7 @@ PATCH_FILES=(
   "sbin/ssroutined"
   "sbin/ssmessaged"
   "sbin/ssrtmpclientd"
-  "webapi/Camera/src/ssrtmpclientd/SYNO.SurveillanceStation.Camera.so"
+  "webapi/Camera/src/SYNO.SurveillanceStation.Camera.so"
 )
 
 echo "Found ${SS_NAME}"
