@@ -99,7 +99,7 @@ function getOfficiallibs() {
 [ ! -f "${TOOL_PATH}/synoarchive" ] && synoArchive
 
 RE_VERSION="${RE_VERSION:-"9.2"}"
-PATCH_LIST="${PATCH_LIST:-"bin/ssctl  lib/libssutils.so sbin/ssactruled sbin/sscmshostd sbin/sscored sbin/ssdaemonmonitord sbin/ssexechelperd sbin/ssroutined sbin/ssmessaged sbin/ssrtmpclientd"}"  
+PATCH_LIST="${PATCH_LIST:-"bin/ssctl  lib/libssutils.so sbin/ssactruled sbin/sscmshostd sbin/sscored sbin/ssdaemonmonitord sbin/ssexechelperd sbin/ssroutined sbin/ssmessaged sbin/ssrtmpclientd webapi/Camera/src/ssrtmpclientd/SYNO.SurveillanceStation.Camera.so"}"  
 
 SS_URL="https://archive.synology.com/download/Package/SurveillanceStation"
 VER_LIST="$(curl -skL "${SS_URL}" | grep -oP '(?<=href="/download/Package/SurveillanceStation/)[^"]*' | awk -v ver="${RE_VERSION}" -F"-" '$1 >= ver')"
