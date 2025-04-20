@@ -163,6 +163,7 @@ PATCH_FILES=(
   "bin/ssctl"
   "sbin/ssactruled"
   "sbin/sscmshostd"
+  "sbin/sscamerad"
   "sbin/sscored"
   "sbin/ssdaemonmonitord"
   "sbin/ssexechelperd"
