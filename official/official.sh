@@ -86,10 +86,10 @@ function getOfficiallibs() {
   echo "extract ${ROOT_PATH}/extract/package.tgz"
 
   mkdir -p "${ROOT_PATH}/extract/package"
-  (cd "${ROOT_PATH}/extract/package" && xz -dc <"${ROOT_PATH}/extract/package.tgz" | cpio -idm ${PATCH_LIST}) >/dev/null 2>&1 || true
+  (cd "${ROOT_PATH}/extract/package" && xz -dc <"${ROOT_PATH}/extract/package.tgz" | cpio -idmv ${PATCH_LIST} 2>&1) || true
 
   mkdir -p "${ROOT_PATH}/${VERSION}/${SS_PATH}"
-  rm -rf "${ROOT_PATH}/${VERSION}/${SS_PATH}"
+  rm -rf "${ROOT_PATH:?}/${VERSION:?}/${SS_PATH:?}"
   mv -f "${ROOT_PATH}/extract/package" "${ROOT_PATH}/${VERSION}/${SS_PATH}"
 
   rm -rf "${ROOT_PATH}/extract"
