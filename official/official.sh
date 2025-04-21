@@ -86,10 +86,10 @@ function getOfficiallibs() {
   echo "extract ${ROOT_PATH}/extract/package.tgz"
 
   mkdir -p "${ROOT_PATH}/extract/package"
-  (cd "${ROOT_PATH}/extract/package" && xz -dc <"${ROOT_PATH}/extract/package.tgz" | cpio -idm ${PATCH_LIST}) >/dev/null 2>&1 || true
+  (cd "${ROOT_PATH}/extract/package" && xz -dc <"${ROOT_PATH}/extract/package.tgz" | cpio -idmv ${PATCH_LIST} 2>&1) || true
 
   mkdir -p "${ROOT_PATH}/${VERSION}/${SS_PATH}"
-  rm -rf "${ROOT_PATH}/${VERSION}/${SS_PATH}"
+  rm -rf "${ROOT_PATH:?}/${VERSION:?}/${SS_PATH:?}"
   mv -f "${ROOT_PATH}/extract/package" "${ROOT_PATH}/${VERSION}/${SS_PATH}"
 
   rm -rf "${ROOT_PATH}/extract"
@@ -99,7 +99,7 @@ function getOfficiallibs() {
 [ ! -f "${TOOL_PATH}/synoarchive" ] && synoArchive
 
 RE_VERSION="${RE_VERSION:-"9.2"}"
-PATCH_LIST="${PATCH_LIST:-"bin/ssctl bin/libssffmpegutils.so lib/libssutils.so sbin/ssactruled sbin/sscmshostd sbin/sscored sbin/sscamerad sbin/ssdaemonmonitord sbin/ssexechelperd sbin/ssroutined sbin/ssmessaged sbin/ssrtmpclientd webapi/Camera/src/SYNO.SurveillanceStation.Camera.so"}"  
+PATCH_LIST="${PATCH_LIST:-"bin/ssctl lib/libssffmpegutils.so lib/libssutils.so sbin/ssactruled sbin/sscmshostd sbin/sscored sbin/sscamerad sbin/ssdaemonmonitord sbin/ssexechelperd sbin/ssroutined sbin/ssmessaged sbin/ssrtmpclientd webapi/Camera/src/SYNO.SurveillanceStation.Camera.so"}"
 
 SS_URL="https://archive.synology.com/download/Package/SurveillanceStation"
 VER_LIST="$(curl -skL "${SS_URL}" | grep -oP '(?<=href="/download/Package/SurveillanceStation/)[^"]*' | awk -v ver="${RE_VERSION}" -F"-" '$1 >= ver')"
