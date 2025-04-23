@@ -70,13 +70,7 @@ install() {
   /usr/syno/bin/synopkg stop SurveillanceStation >/dev/null 2>&1
   sleep 5
 
-  # 屏蔽认证服务器
-  if grep -q "synosurveillance.synology.com" /etc/hosts; then
-    echo "Already blocked license server: synosurveillance.synology.com."
-  else
-    echo "Add block license server: synosurveillance.synology.com"
-    echo "0.0.0.0 synosurveillance.synology.com" | sudo tee -a /etc/hosts
-  fi
+
 
   # 处理 patch 文件
   SS_PATH="/var/packages/SurveillanceStation/target"
@@ -114,13 +108,7 @@ uninstall() {
     _process_file "${SS_PATH}/${F}" "${_suffix}" 0755
   done
 
-  # 解除屏蔽认证服务器
-  if grep -q "synosurveillance.synology.com" /etc/hosts; then
-    echo "Unblocking license server: synosurveillance.synology.com"
-    sudo sed -i '/synosurveillance.synology.com/d' /etc/hosts
-  else
-    echo "License server not blocked: synosurveillance.synology.com."
-  fi
+
 
   sleep 5
   /usr/syno/bin/synopkg start SurveillanceStation >/dev/null 2>&1
