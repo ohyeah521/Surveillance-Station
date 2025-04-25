@@ -15,10 +15,23 @@ install() {
     mkdir -p "$(dirname "${file}" 2>/dev/null)" 2>/dev/null
     STATUS="$(curl -skL -w "%{http_code}" "${url}" -o "${file}")"
     STATUS="${STATUS: -3}"
-    if ! echo "200 404" | grep -wq "${STATUS}"; then
+    case "${STATUS}" in
+    "200") ;;
+    "403")
+      rm -rf "${file}"
+      echo "Error: ${STATUS}, Access forbidden to the package on GitHub."
+      exit 1
+      ;;
+    "404")
+      rm -rf "${file}"
+      echo "Warning: ${file} not exist, skip."
+      ;;
+    *)
+      rm -rf "${file}"
       echo "Error: ${STATUS}, Failed to download ${url} from GitHub."
       exit 1
-    fi
+      ;;
+    esac
   }
   
   _process_file() {
