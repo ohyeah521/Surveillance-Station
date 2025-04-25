@@ -151,6 +151,7 @@ PATCH_FILES=(
   "lib/libssffmpegutils.so"
   "bin/ssctl"
   "sbin/ssactruled"
+  "sbin/ssapid"
   "sbin/sscmshostd"
   "sbin/sscamerad"
   "sbin/sscored"
