@@ -11,12 +11,13 @@ WORK_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 install() {
   _get_files() {
     local url="${1}" file="${2}"
-    echo "Downloading $(basename "${url}" 2>/dev/null) ..."
     mkdir -p "$(dirname "${file}" 2>/dev/null)" 2>/dev/null
     STATUS="$(curl -skL -w "%{http_code}" "${url}" -o "${file}")"
     STATUS="${STATUS: -3}"
     case "${STATUS}" in
-    "200") ;;
+    "200")
+      echo "Info: $(basename "${url}" 2>/dev/null) downloaded successfully."
+      ;;
     "403")
       rm -rf "${file}"
       echo "Error: ${STATUS}, Access forbidden to the package on GitHub."
@@ -24,27 +25,27 @@ install() {
       ;;
     "404")
       rm -rf "${file}"
-      echo "Warning: ${file} not exist, skip."
+      echo "Warning: $(basename "${url}" 2>/dev/null) skipped, not exist."
       ;;
     *)
       rm -rf "${file}"
-      echo "Error: ${STATUS}, Failed to download ${url} from GitHub."
+      echo "Error: ${STATUS}, $(basename "${url}" 2>/dev/null) failed to download."
       exit 1
       ;;
     esac
   }
-  
+
   _process_file() {
     local file="${1}" dest="${2}" suffix="${3}" mode="${4}"
-    echo "Patch ${dest}"
-    [ ! -f "${file}" ] && {
-      echo "Warning: ${file} not exist, skip."
-      return 1
-    }
-    [ ! -f "${dest}${suffix}" ] && cp -pf "${dest}" "${dest}${suffix}"
-    cp -f "${file}" "${dest}"
-    chown SurveillanceStation:SurveillanceStation "${dest}"
-    chmod "${mode}" "${dest}"
+    if [ -f "${file}" ]; then
+      echo "Info: $(basename "${file}" 2>/dev/null) processing ..."
+      [ ! -f "${dest}${suffix}" ] && cp -pf "${dest}" "${dest}${suffix}"
+      cp -f "${file}" "${dest}"
+      chown SurveillanceStation:SurveillanceStation "${dest}"
+      chmod "${mode}" "${dest}"
+    else
+      echo "Warning: $(basename "${file}" 2>/dev/null) skipped, not exist."
+    fi
   }
 
   ISDL=false
@@ -83,8 +84,6 @@ install() {
   /usr/syno/bin/synopkg stop SurveillanceStation >/dev/null 2>&1
   sleep 5
 
-
-
   # 处理 patch 文件
   SS_PATH="/var/packages/SurveillanceStation/target"
   _suffix="_backup"
@@ -102,12 +101,12 @@ uninstall() {
   _process_file() {
     local file="${1}" suffix="${2}" mode="${3}"
     if [ -f "${file}${suffix}" ]; then
-      echo "Restore ${file}"
+      echo "Info: $(basename "${file}" 2>/dev/null) restoring ..."
       mv -f "${file}${suffix}" "${file}"
       chown SurveillanceStation:SurveillanceStation "${file}"
       chmod "${mode}" "${file}"
     else
-      echo "Error: Backup file for ${file} does not exist"
+      echo "Error: $(basename "${file}" 2>/dev/null) skipped, not exist."
     fi
   }
 
@@ -121,19 +120,17 @@ uninstall() {
     _process_file "${SS_PATH}/${F}" "${_suffix}" 0755
   done
 
-
-
   sleep 5
   /usr/syno/bin/synopkg start SurveillanceStation >/dev/null 2>&1
 }
 
 if [ ! "${USER}" = "root" ]; then
-  echo "Please run as root"
+  echo "Error: Please run as root"
   exit 9
 fi
 
 if [ ! -x "/usr/syno/bin/synopkg" ]; then
-  echo "Please run in Synology system"
+  echo "Error: Please run in Synology system"
   exit 1
 fi
 
@@ -144,7 +141,7 @@ if [ -z "${VERSION}" ]; then
   # /usr/syno/bin/synopkg chkupgradepkg 2>/dev/null
   # /usr/syno/bin/synopkg install_from_server SurveillanceStation
 
-  echo "Please install Surveillance Station first"
+  echo "Error: Please install Surveillance Station first"
   exit 1
 fi
 
@@ -174,7 +171,7 @@ PATCH_FILES=(
   "webapi/Camera/src/SYNO.SurveillanceStation.Camera.so"
 )
 
-echo "Found ${SS_NAME}"
+echo "Info: Found ${SS_NAME}"
 
 case "${1}" in
 -r | --uninstall)
