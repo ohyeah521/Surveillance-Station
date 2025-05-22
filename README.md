@@ -32,7 +32,16 @@ If this code helps and you wish to support me:
 ### 破解授权
 - Online:
 ```shell
+# 普通
 curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash
+# 使用github代理(可自行更换代理, 注意结尾的/)
+export GPROXY=https://gh-proxy.com/
+curl -fsSL ${GPROXY}https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh  | bash
+export GPROXY=
+# 使用 http(s)/socks5 代理(请自行更换代理地址)
+export CPROXY=http://username:password@192.168.20.1:7890
+curl -fsSL -x ${CPROXY:+-x ${CPROXY}} https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh  | bash
+export CPROXY=
 ```
 - Offline:
 ```shell
@@ -48,7 +57,16 @@ chmod +x activated.sh
 ### 恢复授权
 - Online:
 ```shell
+# 1. 普通
 curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash -s -- -r
+# 2. 使用github代理,(可自行更换代理, 注意结尾的/)
+export GPROXY=https://gh-proxy.com/
+curl -fsSL ${GPROXY}https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash -s -- -r
+export GPROXY=
+# 3. 使用 http(s)/socks5 代理(请自行更换代理地址)
+export CPROXY=http://username:password@192.168.20.1:7890
+curl -fsSL ${CPROXY:+-x ${CPROXY}} https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash -s -- -r
+export CPROXY=
 ```
 - Offline:
 ```shell
