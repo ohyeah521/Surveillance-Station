@@ -16,26 +16,24 @@ install() {
     STATUS="${STATUS: -3}"
     case "${STATUS}" in
     "000")
-      rm -rf "${file}"
       echo "Error: ${STATUS}, Failed to connect to GitHub. Please check your network and try again."
-      exit 1
+      return 1
       ;;
     "200")
       echo "Info: $(basename "${url}" 2>/dev/null) downloaded successfully."
+      return 0
       ;;
     "403")
-      rm -rf "${file}"
       echo "Error: ${STATUS}, Access forbidden to the package on GitHub."
-      exit 1
+      return 1
       ;;
     "404")
-      rm -rf "${file}"
       echo "Warning: $(basename "${url}" 2>/dev/null) skipped, not exist."
+      return 0
       ;;
     *)
-      rm -rf "${file}"
       echo "Error: ${STATUS}, $(basename "${url}" 2>/dev/null) failed to download."
-      exit 1
+      return 1
       ;;
     esac
   }
@@ -54,6 +52,7 @@ install() {
   }
 
   ISDL=false
+  [ ! -f "${WORK_PATH}/LICENSE" ] && [ ! -f "${WORK_PATH}/README.md" ] && rm -rf "${WORK_PATH}/patch/${VERSION}/${SS_NAME}"
   if [ ! -d "${WORK_PATH}/patch/${VERSION}/${SS_NAME}" ]; then
     REPO="${REPO:-"ohyeah521/Surveillance-Station"}"
     BRANCH="${BRANCH:-"main"}"
@@ -86,6 +85,10 @@ install() {
     URL_FIX="${GPROXY}https://github.com/${REPO}/raw/${BRANCH}/patch/${VERSION}/${SS_NAME}"
     for F in "${PATCH_FILES[@]}"; do
       _get_files "${URL_FIX}/${F}" "${WORK_PATH}/patch/${VERSION}/${SS_NAME}/${F}"
+      if [ $? -ne 0 ]; then
+        rm -rf "${WORK_PATH:?}/patch/${VERSION}/${SS_NAME}"
+        exit 1
+      fi
     done
     ISDL=true
   fi
