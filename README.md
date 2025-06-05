@@ -29,16 +29,16 @@ If this code helps and you wish to support me:
 ## Download [Surveillance Station](https://archive.synology.com/download/Package/SurveillanceStation)
 
 ---
-### 破解授权
+### 破解授权 Crack License
 - Online:
 ```shell
-# 普通
+# 1. 普通 Normal
 curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash
-# 使用github代理(可自行更换代理, 注意结尾的/)
+# 2. 使用github代理(可自行更换代理, 注意结尾的/) Using github proxy (Please replace the proxy address yourself)
 export GPROXY=https://gh-proxy.com/
 curl -fsSL ${GPROXY}https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh  | bash
 export GPROXY=
-# 使用 http(s)/socks5 代理(请自行更换代理地址)
+# 3. 使用 http(s)/socks5 代理(请自行更换代理地址) Using http(s)/socks5 proxy (Please replace the proxy address yourself)
 export CPROXY=http://username:password@192.168.20.1:7890
 curl -fsSL -x ${CPROXY:+-x ${CPROXY}} https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh  | bash
 export CPROXY=
@@ -54,16 +54,16 @@ chmod +x activated.sh
 ```
 
 ---
-### 恢复授权
+### 恢复授权 Restore License
 - Online:
 ```shell
-# 1. 普通
+# 1. 普通 Normal
 curl -fsSL https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash -s -- -r
-# 2. 使用github代理,(可自行更换代理, 注意结尾的/)
+# 2. 使用 github 代理(可自行更换代理, 注意结尾的/) Using github proxy (Please replace the proxy address yourself)
 export GPROXY=https://gh-proxy.com/
 curl -fsSL ${GPROXY}https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash -s -- -r
 export GPROXY=
-# 3. 使用 http(s)/socks5 代理(请自行更换代理地址)
+# 3. 使用 http(s)/socks5 代理(请自行更换代理地址) Using http(s)/socks5 proxy (Please replace the proxy address yourself)
 export CPROXY=http://username:password@192.168.20.1:7890
 curl -fsSL ${CPROXY:+-x ${CPROXY}} https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/activated.sh | bash -s -- -r
 export CPROXY=
