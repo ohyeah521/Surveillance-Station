@@ -16,6 +16,7 @@ install() {
     STATUS="${STATUS: -3}"
     case "${STATUS}" in
     "000")
+      rm -f "${file}"
       echo "Error: ${STATUS}, Failed to connect to GitHub. Please check your network and try again."
       return 1
       ;;
@@ -24,14 +25,17 @@ install() {
       return 0
       ;;
     "403")
+      rm -f "${file}"
       echo "Error: ${STATUS}, Access forbidden to the package on GitHub."
       return 1
       ;;
     "404")
+      rm -f "${file}"
       echo "Warning: $(basename "${url}" 2>/dev/null) skipped, not exist."
       return 0
       ;;
     *)
+      rm -f "${file}"
       echo "Error: ${STATUS}, $(basename "${url}" 2>/dev/null) failed to download."
       return 1
       ;;
