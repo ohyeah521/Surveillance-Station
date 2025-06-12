@@ -12,7 +12,7 @@ install() {
   _get_files() {
     local url="${1}" file="${2}"
     mkdir -p "$(dirname "${file}" 2>/dev/null)" 2>/dev/null
-    STATUS="$(curl -skL ${CPROXY:+-x ${CPROXY}} -m 10 --connect-timeout 10 -w "%{http_code}" "${url}" -o "${file}")"
+    STATUS="$(curl -skL ${CPROXY:+-x ${CPROXY}} -w "%{http_code}" "${url}" -o "${file}")"
     STATUS="${STATUS: -3}"
     case "${STATUS}" in
     "000")
@@ -59,7 +59,7 @@ install() {
 
     # 检查版本是否存在
     VERURL="${GPROXY}https://github.com/${REPO}/tree/${BRANCH}/patch/${VERSION}/${SS_NAME}"
-    STATUS="$(curl -skL ${CPROXY:+-x ${CPROXY}} -m 10 --connect-timeout 10 -w "%{http_code}" "${VERURL}" -o /dev/null 2>/dev/null)"
+    STATUS="$(curl -skL ${CPROXY:+-x ${CPROXY}} -w "%{http_code}" "${VERURL}" -o /dev/null 2>/dev/null)"
     STATUS="${STATUS: -3}"
     case "${STATUS}" in
     "000")
@@ -93,7 +93,7 @@ install() {
     ISDL=true
   fi
 
-  /usr/syno/bin/synopkg stop SurveillanceStation >/dev/null 2>&1
+  /usr/syno/bin/synopkg stop SurveillanceStation
   sleep 5
 
   # 处理 patch 文件
@@ -104,7 +104,7 @@ install() {
   done
 
   sleep 5
-  /usr/syno/bin/synopkg start SurveillanceStation >/dev/null 2>&1
+  /usr/syno/bin/synopkg start SurveillanceStation
 
   [ "${ISDL}" = true ] && rm -rf "${WORK_PATH:?}/patch/${VERSION}/${SS_NAME}"
 }
@@ -122,7 +122,7 @@ uninstall() {
     fi
   }
 
-  /usr/syno/bin/synopkg stop SurveillanceStation >/dev/null 2>&1
+  /usr/syno/bin/synopkg stop SurveillanceStation
   sleep 5
 
   # 处理 patch 文件
@@ -133,7 +133,7 @@ uninstall() {
   done
 
   sleep 5
-  /usr/syno/bin/synopkg start SurveillanceStation >/dev/null 2>&1
+  /usr/syno/bin/synopkg start SurveillanceStation
 }
 
 if [ ! "${USER}" = "root" ]; then
