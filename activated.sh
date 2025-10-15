@@ -56,13 +56,13 @@ install() {
   }
 
   ISDL=false
-  [ ! -f "${WORK_PATH}/LICENSE" ] && [ ! -f "${WORK_PATH}/README.md" ] && rm -rf "${WORK_PATH}/patch/${VERSION}/${SS_NAME}"
-  if [ ! -d "${WORK_PATH}/patch/${VERSION}/${SS_NAME}" ]; then
+  [ ! -f "${WORK_PATH}/LICENSE" ] && [ ! -f "${WORK_PATH}/README.md" ] && rm -rf "${WORK_PATH}/official/${VERSION}/${SS_NAME}"
+  if [ ! -d "${WORK_PATH}/official/${VERSION}/${SS_NAME}" ]; then
     REPO="${REPO:-"ohyeah521/Surveillance-Station"}"
     BRANCH="${BRANCH:-"main"}"
 
     # 检查版本是否存在
-    VERURL="${GPROXY}https://github.com/${REPO}/tree/${BRANCH}/patch/${VERSION}/${SS_NAME}"
+    VERURL="${GPROXY}https://github.com/${REPO}/tree/${BRANCH}/official/${VERSION}/${SS_NAME}"
     STATUS="$(curl -skL ${CPROXY:+-x ${CPROXY}} -w "%{http_code}" "${VERURL}" -o /dev/null 2>/dev/null)"
     STATUS="${STATUS: -3}"
     case "${STATUS}" in
@@ -86,11 +86,11 @@ install() {
     esac
 
     # 获取 patch 文件
-    URL_FIX="${GPROXY}https://github.com/${REPO}/raw/${BRANCH}/patch/${VERSION}/${SS_NAME}"
+    URL_FIX="${GPROXY}https://github.com/${REPO}/raw/${BRANCH}/official/${VERSION}/${SS_NAME}"
     for F in "${PATCH_FILES[@]}"; do
-      _get_files "${URL_FIX}/${F}" "${WORK_PATH}/patch/${VERSION}/${SS_NAME}/${F}"
+      _get_files "${URL_FIX}/${F}" "${WORK_PATH}/official/${VERSION}/${SS_NAME}/${F}"
       if [ $? -ne 0 ]; then
-        rm -rf "${WORK_PATH:?}/patch/${VERSION}/${SS_NAME}"
+        rm -rf "${WORK_PATH:?}/official/${VERSION}/${SS_NAME}"
         exit 1
       fi
     done
@@ -104,13 +104,13 @@ install() {
   SS_PATH="/var/packages/SurveillanceStation/target"
   _suffix="_backup"
   for F in "${PATCH_FILES[@]}"; do
-    _process_file "${WORK_PATH}/patch/${VERSION}/${SS_NAME}/${F}" "${SS_PATH}/${F}" "${_suffix}" 0755
+    _process_file "${WORK_PATH}/official/${VERSION}/${SS_NAME}/${F}" "${SS_PATH}/${F}" "${_suffix}" 0755
   done
 
   sleep 5
   /usr/syno/bin/synopkg start SurveillanceStation
 
-  [ "${ISDL}" = true ] && rm -rf "${WORK_PATH:?}/patch/${VERSION}/${SS_NAME}"
+  [ "${ISDL}" = true ] && rm -rf "${WORK_PATH:?}/official/${VERSION}/${SS_NAME}"
 }
 
 uninstall() {
