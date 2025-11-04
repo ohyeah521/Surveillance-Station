@@ -77,6 +77,9 @@ install() {
       ;;
     "404")
       echo "Error: ${STATUS}, Current version not found patch on GitHub."
+      echo "This version is not cracked; please donate to the developer to support his work."
+      echo "    PayPal: https://paypal.me/wovow"
+      echo "这个版本没有破解；请捐赠给开发者以支持他的工作。"
       exit 1
       ;;
     *)
