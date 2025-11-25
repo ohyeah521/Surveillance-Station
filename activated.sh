@@ -186,6 +186,7 @@ PATCH_FILES=(
   "sbin/ssexechelperd"
   "sbin/ssroutined"
   "sbin/ssmessaged"
+  "sbin/ssnotifyd"
   "sbin/ssrtmpclientd"
   "webapi/Camera/src/SYNO.SurveillanceStation.Camera.so"
 )
