@@ -36,6 +36,7 @@ jobs:
 
       - name: Get official libs
         run: |
+          chmod +x official/official.sh
           RE_VERSION="${{ inputs.re_version }}" PATCH_LIST="${{ inputs.patch_list }}" official/official.sh
 
       - name: Check and Push
