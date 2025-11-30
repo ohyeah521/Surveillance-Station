@@ -185,8 +185,6 @@ PATCH_FILES=(
   "sbin/ssexechelperd"
   "sbin/ssroutined"
   "sbin/ssmessaged"
-  "sbin/ssrtmpclientd"
-  "webapi/Camera/src/SYNO.SurveillanceStation.Camera.so"
 )
 
 echo "Info: Found ${SS_NAME}"
