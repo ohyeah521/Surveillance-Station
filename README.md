@@ -1,35 +1,39 @@
-# 免责声明
+# Anglus Security Research
 
-本研究旨在为了学术和技术交流的目的，探讨商业软件注册限制的绕过方法。
+## Legal Notice
 
-**特别声明：**
+This material is provided exclusively for educational, academic, and information security research purposes.
 
-1. 本研究仅用于学术研究和技术学习，不得用于任何违法或不正当的目的，包括但不限于商业用途、侵权行为或破坏性操作。
-2. 研究成果的发布不代表对绕过方法的推广或鼓励，也不对任何由此产生的法律责任或后果承担责任。
-3. 用户应自行确保在进行任何相关操作之前，已经获得软件供应商的授权许可，并遵守所有相关法律法规。
-4. 本免责声明不适用于任何违反法律法规的行为，作者不对因使用本研究成果而产生的任何法律责任、经济损失或其他不良后果承担责任。
+Its purpose is to encourage responsible study of software architecture, license protection, defensive reverse engineering, vulnerability analysis, and compliance best practices. This content must not be used to violate terms of service, bypass licensing mechanisms, access paid features without authorization, or harm third parties.
 
-请使用者在使用本研究成果时，自觉遵守法律法规，并对自己的行为负责。
+## Permitted Use
+
+This project may be used for:
+
+* technical study in owned or authorized environments;
+* defensive security analysis;
+* documentation of software protection concepts;
+* academic research and professional learning;
+* improvement of audit, compliance, and system protection processes.
+
+## User Responsibility
+
+Before testing, analyzing, or modifying any third-party software, make sure you have explicit authorization from the owner or vendor.
+
+Any misuse of this material is the sole responsibility of the user. The authors, contributors, and maintainers are not responsible for damages, losses, contractual violations, legal breaches, or any consequences resulting from improper use.
+
+## Compliance
+
+This project does not encourage piracy, license violation, unauthorized commercial use, unauthorized software distribution, or any activity that violates laws, agreements, or vendor policies.
+
+Use this content ethically, responsibly, and with respect for intellectual property.
 
 ---
-### 交流群
-[Telegram Group](https://t.me/+40j656PRiB41NTI1)
-
----
-### 请我喝杯咖啡
-If this code helps and you wish to support me:
-- [PayPal: https://paypal.me/wovow](https://paypal.me/wovow)
-
-- ![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/buy%20me%20coffee.jpg)
-- ![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/eth.png)
-- - Ethereum: 0xcD3e7014164c462c07aD2700D1206Fb586388428
--
-
 
 ## Download [Surveillance Station](https://archive.synology.com/download/Package/SurveillanceStation)
 
 ---
-### 破解授权 Crack License
+### Crack License
 - Online:
 ```shell
 # 1. 普通 Normal
@@ -54,7 +58,7 @@ chmod +x activated.sh
 ```
 
 ---
-### 恢复授权 Restore License
+### Restore License
 - Online:
 ```shell
 # 1. 普通 Normal
@@ -79,8 +83,3 @@ chmod +x activated.sh
 ```
 
 ---
-### 破解60授权
-![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/crack_license.png)
-
-
-
