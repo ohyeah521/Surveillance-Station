@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "version": "9.3.0-12139",
+  "architecture": "x86_64",
+  "variant": "standard",
+  "baseline_commit": "b168413c9793f97883739d1c4031f596b0ccac18",
+  "baseline_root": "official/9.3.0-12139/SurveillanceStation-x86_64-9.3.0-12139",
+  "output_root": "patch/9.3.0-12139/SurveillanceStation-x86_64-9.3.0-12139",
+  "files": [
+    {
+      "path": "lib/libssutils.so",
+      "baseline_sha256": "7cd75c3bd7931aa2757f11ca3e421b8df4e5d577833101ff841f0fe71194051a",
+      "patches": [
+        {
+          "offset": "0x26eb70",
+          "expected": "415541",
+          "replacement": "31c0c3",
+          "note": "SSKey::IsExpired: return false"
+        },
+        {
+          "offset": "0x27034f",
+          "expected": "43",
+          "replacement": "7d",
+          "note": "SSKeyMgr constructor key-class upper bound"
+        },
+        {
+          "offset": "0x270452",
+          "expected": "41",
+          "replacement": "7d",
+          "note": "SSKeyMgr constructor alternate key-class upper bound"
+        },
+        {
+          "offset": "0x27053e",
+          "expected": "e8cd7ee4ff",
+          "replacement": "31c0909090",
+          "note": "SSKey::SetKey: force successful validation result"
+        },
+        {
+          "offset": "0x2739f3",
+          "expected": "00",
+          "replacement": "7d",
+          "note": "SSKeyMgr::Load key marker"
+        },
+        {
+          "offset": "0x589db8",
+          "expected": "2f6c6963656e73655f",
+          "replacement": "73796e6f6c6f67792e",
+          "note": "license endpoint prefix"
+        },
+        {
+          "offset": "0x589dc2",
+          "expected": "6865636b2e7068703f6473534e3d",
+          "replacement": "6f6d000000000000000000000000",
+          "note": "license endpoint suffix"
+        },
+        {
+          "offset": "0x589e08",
+          "expected": "73796e6f7375727665696c6c616e63652e73796e6f6c6f67792e636f6d",
+          "replacement": "3139322e3136382e3235302e3235300000000000000000000000000000",
+          "note": "license service host"
+        }
+      ],
+      "patched_sha256": "1a1da8e6b161474e7693553f774e23df9542a98cd00929c8b789c77f6a1231e5"
+    },
+    {
+      "path": "lib/libssffmpegutils.so",
+      "baseline_sha256": "4dab20d159402d6b66696ac16cd4748d76f66c1a30ec7d7345c2347a2761fe66",
+      "patches": [],
+      "note": "9.3.0 already follows the old patched FFmpegMuxer path",
+      "patched_sha256": "4dab20d159402d6b66696ac16cd4748d76f66c1a30ec7d7345c2347a2761fe66"
+    },
+    {
+      "path": "sbin/sscmshostd",
+      "baseline_sha256": "7654d6660c0d5bfd74d13e38de76cb67d1a10c4e05090164344adb68f26da0e9",
+      "patches": [
+        {
+          "offset": "0x225e0",
+          "expected": "534889",
+          "replacement": "31c0c3",
+          "note": "CmsCommMgr periodic method: return success"
+        },
+        {
+          "offset": "0x23540",
+          "expected": "415455",
+          "replacement": "31c0c3",
+          "note": "CMS validation helper: return success"
+        }
+      ],
+      "patched_sha256": "5bf9d50ce939e75446e6b652d9c6b42c97e65d03f9ab5cfc57261a0c1686d5d8"
+    },
+    {
+      "path": "sbin/sscamerad",
+      "baseline_sha256": "073cf6f19e977202aadf333767c03e527d9ccd162f5aa7a8899925fe0149d588",
+      "patches": [],
+      "note": "the direct successors of the two 9.2.5 patched gates already enter the old patched destinations; separate 9.3.0 93600-second and AVC1 predicates are intentionally unchanged",
+      "patched_sha256": "073cf6f19e977202aadf333767c03e527d9ccd162f5aa7a8899925fe0149d588"
+    },
+    {
+      "path": "sbin/sscored",
+      "baseline_sha256": "448f02d26c728764cec09d696cd2438db52d27a51232e260a60baf96e9310f54",
+      "patches": [
+        {
+          "offset": "0x4e14",
+          "expected": "0f8c56ffffff",
+          "replacement": "e957ffffff90",
+          "note": "turn the deadline branch into an unconditional loop"
+        },
+        {
+          "offset": "0x6390",
+          "expected": "415455",
+          "replacement": "31c0c3",
+          "note": "periodic license-maintenance thread: return success"
+        }
+      ],
+      "patched_sha256": "b8985f191a32776be1d3443d783fe431165b654e68f00a17a3a5037623b9b316"
+    },
+    {
+      "path": "sbin/ssdaemonmonitord",
+      "baseline_sha256": "b3b1bd3c78fcb74104315c9177233ee4d21847000665a276b10bd792755658fa",
+      "patches": [
+        {
+          "offset": "0x7816",
+          "expected": "01",
+          "replacement": "00",
+          "note": "disable the periodic monitor flag"
+        }
+      ],
+      "patched_sha256": "04748b34b631476715f45c971e6ef1994cbea0dd51f4efa94122a5007863029c"
+    },
+    {
+      "path": "sbin/ssexechelperd",
+      "baseline_sha256": "5909312180fce8ee604f1135acd3e447f260a6e7f572340a7a217730b5cd2ab4",
+      "patches": [],
+      "note": "the 9.2.5 time-window branch no longer exists in 9.3.0",
+      "patched_sha256": "5909312180fce8ee604f1135acd3e447f260a6e7f572340a7a217730b5cd2ab4"
+    },
+    {
+      "path": "sbin/ssroutined",
+      "baseline_sha256": "84908bab610697b2282442fabf8a71a0882c869f48aeb7772d01a6c3bd1b3df7",
+      "patches": [
+        {
+          "offset": "0x18af2",
+          "expected": "0f8879080000",
+          "replacement": "909090909090",
+          "note": "continue the key reconciliation path for negative deltas"
+        },
+        {
+          "offset": "0x1936b",
+          "expected": "0f8987f7ffff",
+          "replacement": "e988f7ffff90",
+          "note": "make the key-count continuation unconditional"
+        }
+      ],
+      "patched_sha256": "8578d6c559977d9a1205b649a94128dd2ff3b3a5d38c36e7097b649b1657caf3"
+    },
+    {
+      "path": "sbin/ssmessaged",
+      "baseline_sha256": "fc9cc3abcd11c5ea057b3072b3f2ec12a66cfd2b8ddf5d4cea707a7e047c7520",
+      "patches": [
+        {
+          "offset": "0x11c80",
+          "expected": "415741",
+          "replacement": "31c0c3",
+          "note": "license quota rectification helper: return success"
+        }
+      ],
+      "patched_sha256": "a0c34be56bf864a79bdbd413d20790ff905d9f588307060e8959a67331fd72c2"
+    }
+  ]
+}

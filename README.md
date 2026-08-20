@@ -29,6 +29,24 @@ If this code helps and you wish to support me:
 ## Download [Surveillance Station](https://archive.synology.com/download/Package/SurveillanceStation)
 
 ---
+### 9.3.0-12139 support in this branch
+
+- Architecture: `x86_64`
+- Variant: standard Synology NAS package (non-DVA)
+- Payload: `patch/9.3.0-12139/SurveillanceStation-x86_64-9.3.0-12139`
+- Reproducible byte-patch manifest: `support/9.3.0-12139-x86_64/patch-manifest.json`
+- Static verification:
+
+```shell
+python3 tools/build_binary_patch.py \
+  --manifest support/9.3.0-12139-x86_64/patch-manifest.json \
+  --verify-only
+```
+
+The existing `activated.sh` version/architecture resolver detects this directory without a script change.
+Before this branch is pushed or merged, use the offline workflow below; an online run still reads the configured remote `REPO`/`BRANCH`.
+
+---
 ### 破解授权 Crack License
 - Online:
 ```shell
@@ -81,6 +99,4 @@ chmod +x activated.sh
 ---
 ### 破解60授权
 ![License](https://raw.githubusercontent.com/ohyeah521/Surveillance-Station/main/img/crack_license.png)
-
-
 

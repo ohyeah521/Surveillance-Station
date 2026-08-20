@@ -1,0 +1,17 @@
+file	offset	expected	replacement	note
+lib/libssutils.so	0x26eb70	415541	31c0c3	SSKey::IsExpired: return false
+lib/libssutils.so	0x27034f	43	7d	SSKeyMgr constructor key-class upper bound
+lib/libssutils.so	0x270452	41	7d	SSKeyMgr constructor alternate key-class upper bound
+lib/libssutils.so	0x27053e	e8cd7ee4ff	31c0909090	SSKey::SetKey: force successful validation result
+lib/libssutils.so	0x2739f3	00	7d	SSKeyMgr::Load key marker
+lib/libssutils.so	0x589db8	2f6c6963656e73655f	73796e6f6c6f67792e	license endpoint prefix
+lib/libssutils.so	0x589dc2	6865636b2e7068703f6473534e3d	6f6d000000000000000000000000	license endpoint suffix
+lib/libssutils.so	0x589e08	73796e6f7375727665696c6c616e63652e73796e6f6c6f67792e636f6d	3139322e3136382e3235302e3235300000000000000000000000000000	license service host
+sbin/sscmshostd	0x225e0	534889	31c0c3	CmsCommMgr periodic method: return success
+sbin/sscmshostd	0x23540	415455	31c0c3	CMS validation helper: return success
+sbin/sscored	0x4e14	0f8c56ffffff	e957ffffff90	turn the deadline branch into an unconditional loop
+sbin/sscored	0x6390	415455	31c0c3	periodic license-maintenance thread: return success
+sbin/ssdaemonmonitord	0x7816	01	00	disable the periodic monitor flag
+sbin/ssroutined	0x18af2	0f8879080000	909090909090	continue the key reconciliation path for negative deltas
+sbin/ssroutined	0x1936b	0f8987f7ffff	e988f7ffff90	make the key-count continuation unconditional
+sbin/ssmessaged	0x11c80	415741	31c0c3	license quota rectification helper: return success
