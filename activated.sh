@@ -175,6 +175,7 @@ SUFFIX=""
 case "$(synogetkeyvalue /var/packages/SurveillanceStation/INFO model)" in
   "synology_denverton_dva3219") SUFFIX="_DVA3219" ;;
   "synology_denverton_dva3221") SUFFIX="_DVA3221" ;;
+  "synology_v1000nk_dva7400") SUFFIX="_DVA7400" ;;
   "synology_geminilake_dva1622") SUFFIX="_openvino" ;;
   *) ;;
 esac
