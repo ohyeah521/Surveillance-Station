@@ -192,6 +192,8 @@ PATCH_FILES=(
   "sbin/ssexechelperd"
   "sbin/ssroutined"
   "sbin/ssmessaged"
+  "sbin/ssrtmpclientd"
+  "sbin/sswebstreamd"
 )
 
 echo "Info: Found ${SS_NAME}"
